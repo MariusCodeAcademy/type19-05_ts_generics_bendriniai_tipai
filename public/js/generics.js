@@ -25,9 +25,9 @@ const t2 = getTupleFromVal(50, '300');
 console.log('t2 ===', t2);
 t2[1].toLowerCase();
 function processArr(arr) {
-    if (typeof arr[0] === 'string') {
-    }
+    return [...arr];
 }
-processArr([1, 2, 3]);
-processArr(['red', 'green', 'blue']);
+const skArr = processArr([1, 2, 3]);
+const str1Arr = processArr(['red', 'green', 'blue']);
+const boolArr = processArr([true, false, true]);
 //# sourceMappingURL=generics.js.map

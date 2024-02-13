@@ -42,11 +42,13 @@ t2[1].toLowerCase();
 // skaiciu masyva padaugina is 2
 // string masyva padaro upperCase
 
-function processArr(arr: (string | number)[]): (string | number)[] {
-  if (typeof arr[0] === 'string') {
-    // const upperStrArr: string[] = arr.map(str => str.)
-  }
+function processArr<ElType>(arr: ElType[]): ElType[] {
+  return [...arr];
 }
+// function processSkArr<ElType>(arr: ElType[]): ElType[] {
+//   return [...arr];
+// }
 // processArr([1, 2, 3, 'green']); // noretume kad visi masyvo el butu vieno tipo
-processArr([1, 2, 3]);
-processArr(['red', 'green', 'blue']);
+const skArr = processArr([1, 2, 3]);
+const str1Arr = processArr(['red', 'green', 'blue']);
+const boolArr = processArr<boolean>([true, false, true]);
