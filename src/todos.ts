@@ -4,7 +4,7 @@
 // aprasyti tipa arba interface
 
 // atspausdinti todos po to kai gavom duomenis
-const tUrl = 'https://jsonplaceholder.typicode.com/todos';
+const tUrl = 'https://11111jsonplaceholder.typicode.com/todos';
 interface TodoObjIf {
   userId: number;
   id: number;
@@ -17,21 +17,22 @@ let todos: TodoObjIf[] = [];
 console.log('todos ===', todos);
 
 (async (): Promise<void> => {
-  const allTodos = await getTodos(tUrl);
-  // todos = allTodos.filter((tObj) => tObj.id < 20);
-  todos = allTodos.slice(0, 20);
-  console.log('todos in async ===', todos);
-  renderOneTodo(todos, 5);
-  renderOneTodo(todos, 7);
-  renderOneTodo(todos, 9);
+  try {
+    const allTodos = await getTodos(tUrl);
+    // todos = allTodos.filter((tObj) => tObj.id < 20);
+    todos = allTodos.slice(0, 20);
+    console.log('todos in async ===', todos);
+    renderOneTodo(todos, 5);
+    renderOneTodo(todos, 7);
+    renderOneTodo(todos, 9);
+  } catch (error) {
+    console.log('error ===', error);
+    console.log('ivyko klaida');
+  }
 })();
 
 function getTodos(url: string): Promise<TodoObjIf[]> {
-  return fetch(url)
-    .then((resp) => resp.json())
-    .catch((error) => {
-      console.warn('ivyko klaida:', error);
-    });
+  return fetch(url).then((resp) => resp.json());
 }
 
 // gaus argumentu visus todos, ir id to todo kuri nupiesti htmle

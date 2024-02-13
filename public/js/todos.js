@@ -1,21 +1,23 @@
 "use strict";
-const tUrl = 'https://jsonplaceholder.typicode.com/todos';
+const tUrl = 'https://11111jsonplaceholder.typicode.com/todos';
 let todos = [];
 console.log('todos ===', todos);
 (async () => {
-    const allTodos = await getTodos(tUrl);
-    todos = allTodos.slice(0, 20);
-    console.log('todos in async ===', todos);
-    renderOneTodo(todos, 5);
-    renderOneTodo(todos, 7);
-    renderOneTodo(todos, 9);
+    try {
+        const allTodos = await getTodos(tUrl);
+        todos = allTodos.slice(0, 20);
+        console.log('todos in async ===', todos);
+        renderOneTodo(todos, 5);
+        renderOneTodo(todos, 7);
+        renderOneTodo(todos, 9);
+    }
+    catch (error) {
+        console.log('error ===', error);
+        console.log('ivyko klaida');
+    }
 })();
 function getTodos(url) {
-    return fetch(url)
-        .then((resp) => resp.json())
-        .catch((error) => {
-        console.warn('ivyko klaida:', error);
-    });
+    return fetch(url).then((resp) => resp.json());
 }
 function renderOneTodo(arr, tId) {
     const found = arr.find((tObj) => tObj.id === tId);
