@@ -5,13 +5,18 @@ const arr1: Array<number> = [1, 2, 2];
 
 const urlPosts = 'https://jsonplaceholder.typicode.com/posts/1';
 
-async function needAwait() {
-  const gotObj = await getPost(urlPosts);
-  console.log('gotObj ===', gotObj);
-  gotObj.title;
-}
-needAwait();
+// async function needAwait() {
+//   const gotObj = await getPost(urlPosts);
+//   console.log('gotObj ===', gotObj);
+//   gotObj.title;
+// }
+// needAwait();
 // console.log('gotObj ===', gotObj);
+
+// gauti gotObj be await
+// const gotObj = getPost(urlPosts);
+// tik kitokia sintakse
+getPost(urlPosts);
 
 function getPost(url: string): Promise<PostObjIf> {
   return fetch(url)
