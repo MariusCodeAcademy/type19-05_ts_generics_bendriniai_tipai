@@ -2,13 +2,6 @@
   literal-types(konkretūs tipai) - tai tipai sudaryti iš konkrečių reikšmių
 */
 
-{
-  const blue = 'blue';
-}
-{
-  const blue = 'melyna';
-}
-
 type Latvia = 'Latvia';
 type Lithuania = 'Lithuania';
 type Estonia = 'Estonia';

@@ -1,10 +1,4 @@
 "use strict";
-{
-    const blue = 'blue';
-}
-{
-    const blue = 'melyna';
-}
 const country = 'Latvia';
 const country2 = 'Estonia';
 const req1 = {
