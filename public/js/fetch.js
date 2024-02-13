@@ -6,7 +6,11 @@ const allPostsUrl = 'https://jsonplaceholder.typicode.com/posts';
 const urlPosts = 'https://jsonplaceholder.typicode.com/posts/1';
 async function needAwait() {
     const gotObj = await getPost(urlPosts);
-    console.log('gotObj ===', gotObj);
+    gotObj.title;
+    const allPostsObj = await getPost(allPostsUrl);
+    allPostsObj.forEach((pObj) => {
+        console.log('pObj.title ===', pObj.title);
+    });
 }
 needAwait();
 function getPost(url) {

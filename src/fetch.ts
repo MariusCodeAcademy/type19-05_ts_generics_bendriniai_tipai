@@ -7,10 +7,16 @@ const allPostsUrl = 'https://jsonplaceholder.typicode.com/posts';
 const urlPosts = 'https://jsonplaceholder.typicode.com/posts/1';
 
 async function needAwait() {
-  const gotObj = await getPost(urlPosts);
-  console.log('gotObj ===', gotObj);
+  const gotObj = await getPost<PostObjIf>(urlPosts);
+  gotObj.title;
+  // if (!Array.isArray(gotObj)) {
+  //   console.log('gotObj ===', gotObj);
+  // }
 
-  // const allPostsObj = await getPost(allPostsUrl);
+  const allPostsObj = await getPost<PostObjIf[]>(allPostsUrl);
+  allPostsObj.forEach((pObj) => {
+    console.log('pObj.title ===', pObj.title);
+  });
   // gotObj.title;
 }
 needAwait();
@@ -23,7 +29,7 @@ needAwait();
 //   console.log('dataBack', dataBack);
 // });
 
-function getPost(url: string): Promise<PostObjIf> {
+function getPost<DataBackType>(url: string): Promise<DataBackType> {
   return (
     fetch(url)
       .then((resp) => resp.json())
