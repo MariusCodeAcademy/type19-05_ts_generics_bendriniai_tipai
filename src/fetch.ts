@@ -3,31 +3,38 @@ console.log('fetch');
 const arr: number[] = [1, 2, 2];
 const arr1: Array<number> = [1, 2, 2];
 
+const allPostsUrl = 'https://jsonplaceholder.typicode.com/posts';
 const urlPosts = 'https://jsonplaceholder.typicode.com/posts/1';
 
-// async function needAwait() {
-//   const gotObj = await getPost(urlPosts);
-//   console.log('gotObj ===', gotObj);
-//   gotObj.title;
-// }
-// needAwait();
+async function needAwait() {
+  const gotObj = await getPost(urlPosts);
+  console.log('gotObj ===', gotObj);
+
+  // const allPostsObj = await getPost(allPostsUrl);
+  // gotObj.title;
+}
+needAwait();
 // console.log('gotObj ===', gotObj);
 
 // gauti gotObj be await
 // const gotObj = getPost(urlPosts);
 // tik kitokia sintakse
-getPost(urlPosts);
+// getPost(urlPosts).then((dataBack) => {
+//   console.log('dataBack', dataBack);
+// });
 
 function getPost(url: string): Promise<PostObjIf> {
-  return fetch(url)
-    .then((resp) => resp.json())
-    .then((data) => {
-      console.log('data ===', data.body);
-      return data;
-    })
-    .catch((error) => {
-      console.warn('ivyko klaida:', error);
-    });
+  return (
+    fetch(url)
+      .then((resp) => resp.json())
+      // .then((data) => {
+      //   console.log('data ===', data.body);
+      //   return data;
+      // })
+      .catch((error) => {
+        console.warn('ivyko klaida:', error);
+      })
+  );
 }
 
 interface PostObjIf {
