@@ -37,3 +37,16 @@ console.log('t1 ===', t1);
 const t2 = getTupleFromVal(50, '300');
 console.log('t2 ===', t2);
 t2[1].toLowerCase();
+
+// funkcija kuri primima skaiciu arba stringu masyva
+// skaiciu masyva padaugina is 2
+// string masyva padaro upperCase
+
+function processArr(arr: (string | number)[]): (string | number)[] {
+  if (typeof arr[0] === 'string') {
+    // const upperStrArr: string[] = arr.map(str => str.)
+  }
+}
+// processArr([1, 2, 3, 'green']); // noretume kad visi masyvo el butu vieno tipo
+processArr([1, 2, 3]);
+processArr(['red', 'green', 'blue']);
