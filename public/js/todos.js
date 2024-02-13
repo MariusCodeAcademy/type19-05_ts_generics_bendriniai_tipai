@@ -7,6 +7,8 @@ console.log('todos ===', todos);
     todos = allTodos.slice(0, 20);
     console.log('todos in async ===', todos);
     renderOneTodo(todos, 5);
+    renderOneTodo(todos, 7);
+    renderOneTodo(todos, 9);
 })();
 function getTodos(url) {
     return fetch(url)
