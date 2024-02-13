@@ -24,3 +24,16 @@ str.toLowerCase();
 
 const strArr = printVal<string[]>(['blue', 'green', 'red']);
 console.log('strArr ===', strArr);
+
+type OurTuple = [string, number];
+
+function getTupleFromVal<Type1, Type2>(x: Type1, y: Type2): [Type1, Type2] {
+  console.log(`making tuple from ${x} and ${y}`);
+  return [x, y];
+}
+
+const t1 = getTupleFromVal('blue', 300);
+console.log('t1 ===', t1);
+const t2 = getTupleFromVal(50, '300');
+console.log('t2 ===', t2);
+t2[1].toLowerCase();
